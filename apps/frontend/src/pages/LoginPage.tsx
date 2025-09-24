@@ -45,7 +45,8 @@ const LoginPage = () => {
   }
 
   const handleOAuthLogin = (provider: 'google' | 'github') => {
-    window.location.href = `/api/auth/oauth/${provider}`
+    const apiUrl = import.meta.env.VITE_API_URL || '/api'
+    window.location.href = `${apiUrl}/auth/oauth/${provider}`
   }
 
   return (

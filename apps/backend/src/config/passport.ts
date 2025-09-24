@@ -95,7 +95,7 @@ if (process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET) {
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
     callbackURL: `${process.env.BACKEND_URL}/api/auth/oauth/github/callback`
-  }, async (accessToken, refreshToken, profile, done) => {
+  }, async (accessToken: any, refreshToken: any, profile: any, done: any) => {
     try {
       // Check if user exists with GitHub ID
       let user = await User.findOne({ 'oauthProviders.github': profile.id });
